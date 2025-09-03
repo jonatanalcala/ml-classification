@@ -20,13 +20,7 @@ dasc41103-ml-classification/
 │  ├─ 04_sklearn_baselines.ipynb   # Part 2e: sklearn Perceptron + (Adaline via SGDRegressor note)
 │  ├─ 05_logreg_svm.ipynb          # Part 3: Logistic Regression & Linear SVM (+ decision boundaries)
 │  └─ 06_reflection.ipynb          # Part 4 answers, figures, citations
-├─ src/
-│  ├─ __init__.py
-│  ├─ data_prep.py                 # loaders, preprocessors (impute, encode, scale)
-│  ├─ models_perceptron.py         # Perceptron (scratch)
-│  ├─ models_adaline.py            # Adaline / AdalineSGD (scratch)
-│  ├─ train_eval.py                # shared training/eval helpers, metrics, plots
-│  └─ visualize.py                 # decision-boundary plots, learning curves
+curves
 ├─ outputs/
 │  ├─ predictions/
 │  │  ├─ Group_18_Perceptron_PredictedOutputs.csv

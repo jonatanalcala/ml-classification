@@ -15,13 +15,13 @@ ML-CLASSIFICATION/
 │  └─ processed/                   # cleaned & encoded datasets, train/val splits
 ├─ notebooks/
 │  ├─ 01_preprocess.ipynb          # Part 1: missing, encode, standardize
-│  ├─ 02_perceptron_scratch.ipynb  # Part 2: perceptron from scratch (+ misclass plot)
-│  ├─ 03_adaline_scratch.ipynb     # Part 2: Adaline / AdalineSGD (+ MSE plot)
-│  ├─ 04_sklearn_baselines.ipynb   # Part 2e: sklearn Perceptron & Adaline
-│  ├─ 05_logreg_svm.ipynb          # Part 3: Logistic Regression & Linear SVM (+ decision boundaries)
-│  └─ 06_reflection.ipynb          # Part 4 answers, discussion, figures
+│  ├─ 02_perceptron_scratch.ipynb  # Part 2a: perceptron from scratch (+ misclass plot)
+│  ├─ 03_adaline_scratch.ipynb     # Part 2b: Adaline / AdalineSGD (+ MSE plot)
+│  ├─ 04_sklearn_baselines.ipynb   # Part 2c: sklearn Perceptron & Adaline
+│  ├─ 05_logreg.ipynb              # Part 3: Logistic Regression 
+│  └─ 06_svm.ipynb                 # Part 4: Linear SVM (+ decision boundaries)
 ├─ outputs/
-│  ├─ graphs/                      # learning curves, MSE curves
+│  ├─ graphs/                      # learning curves, MSE curves, SVM Decision Boundaries
 │  ├─ Group_18_Perceptron_PredictedOutputs.csv
 │  ├─ Group_18_Adaline_PredictedOutputs.csv
 │  ├─ Group_18_LogisticRegression_PredictedOutputs.csv
@@ -86,9 +86,13 @@ ML-CLASSIFICATION/
   - Cross-validation unstable (`NaN` scores for some folds due to SGD sensitivity)
   - Test accuracy: ~0.83
 
-- Logistic Regression:
+- Logistic Regression (best params: `C: 0.615848211066026`):
+  - Cross-validation accuracy: ~0.85
+  - Test accuracy: ~0.85
 
-- SVM:
+- SVM (best params: `pca=passthrough`, `svc__C=1`, `svc__gamma=scale`, `svc__kernel=rbf`):
+  - Cross-validation accuracy: ~0.86
+  - Test accuracy: ~0.85
 
 ---
 

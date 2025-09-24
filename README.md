@@ -26,6 +26,7 @@ ML-CLASSIFICATION/
 │  ├─ Group_18_Adaline_PredictedOutputs.csv
 │  ├─ Group_18_LogisticRegression_PredictedOutputs.csv
 │  └─ Group_18_SVM_PredictedOutputs.csv
+├─ outputs/                        # Presenations & reports
 ```
 
 ---
@@ -113,4 +114,5 @@ ML-CLASSIFICATION/
 3. **Run Notebooks**
     ```bash
     jupyter notebook
+
     ```

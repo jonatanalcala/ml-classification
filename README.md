@@ -10,6 +10,7 @@ ML-CLASSIFICATION/
 ├─ README.md
 ├─ requirements.txt                # Python dependencies             
 ├─ LICENSE
+├─ docs/                           # Research & Key concepts, presentation (.pdf)
 ├─ data/
 │  ├─ raw/                         # project_adult.csv, project_validation_inputs.csv (read-only)
 │  └─ processed/                   # cleaned & encoded datasets, train/val splits
@@ -113,4 +114,5 @@ ML-CLASSIFICATION/
 3. **Run Notebooks**
     ```bash
     jupyter notebook
+
     ```

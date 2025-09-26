@@ -10,11 +10,11 @@ Feature scaling is crucial for gradient-based learners (e.g., Adaline, logistic 
 
 **Key Reasons**
 - Faster & More Stable Convergence
-  Gradient updates use a single learning rate for all weights. When features are on comparable scales, a single `η` works well, steps are well-sized, and the model converges in fewer epochs (less overshoot/undershoot).
-- Prevents Zig-Zagging From Ill-Conditioning
-  Unscaled features produce **elongated, elliptical** loss contours → steepest-descent “zig-zags” across narrow valleys. Scaling makes contours more circular, so steps point more directly toward the minimum.
+  - Gradient updates use a single learning rate for all weights. When features are on comparable scales, a single `η` works well, steps are well-sized, and the model converges in fewer epochs (less overshoot/undershoot).
+- Prevents Zig-Zagging From ill-Conditioning
+  - Unscaled features produce **elongated, elliptical** loss contours → steepest-descent “zig-zags” across narrow valleys. Scaling makes contours more circular, so steps point more directly toward the minimum.
 - Equal contribution & Fair Regularization
-  Gradients for each weight are proportional to feature magnitude. If one feature has a much larger range, it dominates updates and drowns out others. Regularization isn't biased by raw units. 
+  - Gradients for each weight are proportional to feature magnitude. If one feature has a much larger range, it dominates updates and drowns out others. Regularization isn't biased by raw units. 
 
 When features are unscaled, large-range variables (e.g., capital-gain ≈ $100,000) dominate updates relative to smaller-range ones (e.g., age ≈ 25). This slows learning and makes optimization inefficient, yielding an elongated cost-contour rather than a more symmetric one.
 

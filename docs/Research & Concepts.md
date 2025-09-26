@@ -21,7 +21,9 @@ When features are unscaled, large-range variables (e.g., capital-gain ≈ $100,0
 ---
 
 ## B.) Gradient Descent Variants: Batch vs Stochastic Gradient Descent
-
+- **Batch GD (BGD)**: computes the gradient on all N samples each step → smooth, stable updates but expensive per step. 
+- **Stochastic GD (SGD)**: updates using one sample at a time → noisy path, cheap per update, scales to streaming data; often better generalization with a good schedule.
+- **Mini-batch GD (MBGD)**: computes on a small batch (e.g., 32–1024) → practical middle ground and the default in most libraries.
 
 --- 
 

@@ -25,6 +25,10 @@ When features are unscaled, large-range variables (e.g., capital-gain ≈ $100,0
 - **Stochastic GD (SGD)**: updates using one sample at a time → noisy path, cheap per update, scales to streaming data; often better generalization with a good schedule.
 - **Mini-batch GD (MBGD)**: computes on a small batch (e.g., 32–1024) → practical middle ground and the default in most libraries.
 
+Batch GD computes the gradient over the entire dataset before taking a step, so the loss curve is smooth and steps are stable—but each step is expensive. Stochastic GD updates after each single example, so updates are cheap and frequent, but the path is noisy. Mini-batch sits in between and is what most libraries use. In our Adult-Income results you can see the contrast: Adaline-GD has a clean, monotonic MSE decline, while Adaline-SGD is noisier yet still converges and slightly improved recall on the minority class. Use batch when the data are small and you want stability; use SGD/mini-batch for large or streaming data and when you want faster iterations and often better generalization.
+
+An important note is that you need to **shuffle** data each epoch for SGD/mini-batch and use **feature scaling** to improve conditioning and speed. 
+
 --- 
 
 ## C.) Scikit-learn vs Book Implementations: Why does scikit-learn outperform book code?

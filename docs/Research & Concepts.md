@@ -33,6 +33,13 @@ An important note is that you need to **shuffle** data each epoch for SGD/mini-b
 
 ## C.) Scikit-learn vs Book Implementations: Why does scikit-learn outperform book code?
 
+### References
+Perceptron wraps SGDClassifier (parameters & equivalence): (scikit-learn docs)[https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.Perceptron.html]. 
+SGDClassifier/Regressor options (losses, penalties, learning-rate schedules, early stopping, sparse input, partial_fit): scikit-learn docs. 
+Stochastic Gradient Descent user guide (sparse support, implementation notes): scikit-learn. 
+Cython / compiled performance (why scikit-learn is fast): scikit-learn computational performance page; Cython/OpenMP developer notes. 
+Cython inner loop location (sgd_fast.pyx) used by SGD estimators: scikit-learn issue & developer discussion. 
+safe_sparse_dot utility for efficient dense/sparse multiplication: scikit-learn API docs. 
 
 ---
 

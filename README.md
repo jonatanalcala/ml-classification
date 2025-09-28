@@ -8,25 +8,25 @@ This project implements and evaluates simple machine learning classification alg
 ```text
 ML-CLASSIFICATION/
 ├─ README.md
-├─ requirements.txt                # Python dependencies             
+├─ requirements.txt                                    # Python dependencies             
 ├─ LICENSE
+├─ docs/                                               # Research & Key concepts, presentation (.pdf)
 ├─ data/
-│  ├─ raw/                         # project_adult.csv, project_validation_inputs.csv (read-only)
-│  └─ processed/                   # cleaned & encoded datasets, train/val splits
+│  ├─ raw/                                             # project_adult.csv, project_validation_inputs.csv (read-only)
+│  └─ processed/                                       # cleaned & encoded datasets, train/val splits
 ├─ notebooks/
-│  ├─ 01_preprocess.ipynb          # Part 1: missing, encode, standardize
-│  ├─ 02_perceptron_scratch.ipynb  # Part 2a: perceptron from scratch (+ misclass plot)
-│  ├─ 03_adaline_scratch.ipynb     # Part 2b: Adaline / AdalineSGD (+ MSE plot)
-│  ├─ 04_sklearn_baselines.ipynb   # Part 2c: sklearn Perceptron & Adaline
-│  ├─ 05_logreg.ipynb              # Part 3: Logistic Regression 
-│  └─ 06_svm.ipynb                 # Part 4: Linear SVM (+ decision boundaries)
-├─ outputs/
-│  ├─ graphs/                      # learning curves, MSE curves, SVM Decision Boundaries
+│  ├─ 01_preprocess.ipynb                              # Part 1: missing, encode, standardize
+│  ├─ 02_perceptron_scratch.ipynb                      # Part 2a: perceptron from scratch (+ misclass plot)
+│  ├─ 03_adaline_scratch.ipynb                         # Part 2b: Adaline / AdalineSGD (+ MSE plot)
+│  ├─ 04_sklearn_baselines.ipynb                       # Part 2c: sklearn Perceptron & Adaline
+│  ├─ 05_logreg.ipynb                                  # Part 3: Logistic Regression 
+│  └─ 06_svm.ipynb                                     # Part 4: Linear SVM (+ decision boundaries)
+├─ outputs/                                            # Model predictions for each of the ML models                                     
 │  ├─ Group_18_Perceptron_PredictedOutputs.csv
 │  ├─ Group_18_Adaline_PredictedOutputs.csv
 │  ├─ Group_18_LogisticRegression_PredictedOutputs.csv
-│  └─ Group_18_SVM_PredictedOutputs.csv
-├─ outputs/                        # Presenations & reports
+│  ├─ Group_18_SVM_PredictedOutputs.csv
+│  └─ graphs/                                          # learning curves, MSE curves, SVM Decision Boundaries
 ```
 
 ---

@@ -94,8 +94,74 @@ Understanding decision boundaries is key in evaluating how different models clas
 
 ## E.) Regularization: Preventing Overfitting in Machine Learning
 
+### Logistic Regression / Support Vector Machines (SVM)
+- Controlled by the parameter **C**.  
+- As **C decreases**:  
+  - The model **smooths out decision boundaries**.  
+  - Encourages **generalization** by avoiding overly tight fits to training data.  
+  - Balances flexibility with the risk of overfitting.  
+
+### Adaline / Perceptron
+- Regularization applies **penalties to weights**.  
+- Effects include:  
+  - Driving weights **lower** to slow down uncontrolled growth.  
+  - Reducing the risk of the model fitting noise instead of patterns.  
+  - Encouraging simpler representations that are more robust on unseen data.  
+
+### Comparative Insights
+- Both **Logistic/SVM** and **Adaline/Perceptron** benefit from regularization, but they apply it differently.  
+  - Logistic/SVM: Focuses on controlling boundary complexity through parameter C.  
+  - Adaline/Perceptron: Emphasizes penalizing large weights to stabilize learning.  
+- The shared goal is to avoid overly complex models that fail to generalize.  
+
+## Key Takeaways
+1. Regularization is essential to balance **fit vs. generalization**.  
+2. Lowering **C** in Logistic Regression/SVM smooths boundaries, leading to better performance on unseen data.  
+3. For Adaline/Perceptron, weight penalties reduce overfitting and ensure stable learning.  
+4. Effective use of regularization improves both **accuracy** and **robustness** across different learning algorithms.  
 
 ---
 
 ## F.) Impact of the `C` Parameter: Logistic Regression & Linear SVC: 0.01, 1.0, 100.0
+
+The **C parameter** plays a critical role in controlling the trade-off between model complexity and misclassification tolerance in both Logistic Regression and Support Vector Classifiers (SVC). By adjusting C, we directly influence the decision boundary and the model’s ability to generalize.  
+
+### Effect of Different C Values  
+
+- **Small C**  
+  - Creates a **wider margin** between classes.  
+  - Allows some misclassifications.  
+  - Keeps the model simpler, reducing the risk of overfitting but possibly underfitting.  
+
+- **Medium C**  
+  - Provides a **balance** between margin size and classification accuracy.  
+  - Often leads to the most **generalizable performance**, as it neither overfits nor underfits severely.  
+
+- **Large C**  
+  - Focuses on **minimizing misclassification**, fitting the data more tightly.  
+  - Can result in **complex boundaries** that adapt too closely to the training data.  
+  - Increases the risk of **overfitting**, especially in noisy datasets.  
+
+### Impact on Models  
+
+- **Logistic Regression**  
+  - Achieved best accuracy (**84.72%**) at **C = 1**.  
+  - Indicates that the model captures patterns effectively while tolerating some noise.  
+  - Suggests that moderate regularization (not too strict, not too lenient) produces the best balance.  
+
+- **Linear SVC**  
+  - Achieved best accuracy (**84.71%**) at **C = 100**.  
+  - This high value suggests the classifier fits the training data more tightly.  
+  - While accuracy is high, the risk of overfitting is greater since the boundary is less tolerant of noise.  
+
+### Key Takeaways  
+
+1. The **C parameter directly controls model sensitivity and complexity**.  
+2. **Smaller C values** prioritize simplicity and generalization but may underfit.  
+3. **Larger C values** reduce misclassifications but risk overfitting due to overly complex decision boundaries.  
+4. In this case:  
+   - Logistic Regression performed best with **moderate C (1)**, showing the value of balanced regularization.  
+   - Linear SVC peaked at **large C (100)**, demonstrating its preference for tighter fitting at the expense of potential overfitting.  
+
+**Overall:** The appropriate choice of **C** depends on the trade-off desired between **model flexibility, tolerance for noise, and risk of overfitting**.
 

@@ -34,12 +34,12 @@ An important note is that you need to **shuffle** data each epoch for SGD/mini-b
 ## C.) Scikit-learn vs Book Implementations: Why does scikit-learn outperform book code?
 
 ### References
-- Perceptron wraps SGDClassifier (parameters & equivalence): [scikit-learn docs](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.Perceptron.html). 
-- SGDClassifier/Regressor options (losses, penalties, learning-rate schedules, early stopping, sparse input, partial_fit): [scikit-learn docs](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.SGDClassifier.html). 
-- Stochastic Gradient Descent user guide (sparse support, implementation notes): [scikit-learn](https://scikit-learn.org/stable/modules/sgd.html?utm_source=chatgpt.com).
-- Cython / compiled performance (why scikit-learn is fast): scikit-learn computational performance page; [Cython/OpenMP developer notes](https://scikit-learn.org/stable/computing/computational_performance.html?utm_source=chatgpt.com). 
-- Cython inner loop location (sgd_fast.pyx) used by SGD estimators: [scikit-learn issue & developer discussion](https://github.com/scikit-learn/scikit-learn/issues/15123?utm_source=chatgpt.com). 
-- safe_sparse_dot utility for efficient dense/sparse multiplication: [scikit-learn API docs](https://scikit-learn.org/stable/modules/generated/sklearn.utils.extmath.safe_sparse_dot.html?utm_source=chatgpt.com). 
+- **Perceptron wraps SGDClassifier** (parameters & equivalence): [scikit-learn docs](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.Perceptron.html). 
+- **SGDClassifier/Regressor options** (losses, penalties, learning-rate schedules, early stopping, sparse input, partial_fit): [scikit-learn docs](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.SGDClassifier.html). 
+- **Stochastic Gradient Descent user guide** (sparse support, implementation notes): [scikit-learn](https://scikit-learn.org/stable/modules/sgd.html?utm_source=chatgpt.com).
+- **Cython / compiled performance** (why scikit-learn is fast): scikit-learn computational performance page; [Cython/OpenMP developer notes](https://scikit-learn.org/stable/computing/computational_performance.html?utm_source=chatgpt.com). 
+- **Cython inner loop location (`sgd_fast.pyx`) used by SGD estimators**: [scikit-learn issue & developer discussion](https://github.com/scikit-learn/scikit-learn/issues/15123?utm_source=chatgpt.com). 
+- `safe_sparse_dot` utility for efficient dense/sparse multiplication: [scikit-learn API docs](https://scikit-learn.org/stable/modules/generated/sklearn.utils.extmath.safe_sparse_dot.html?utm_source=chatgpt.com). 
 
 ---
 

@@ -33,6 +33,14 @@ An important note is that you need to **shuffle** data each epoch for SGD/mini-b
 
 ## C.) Scikit-learn vs Book Implementations: Why does scikit-learn outperform book code?
 
+The reason scikit-learn’s versions are faster mainly because the hot path is written in Cython. Cython is a superset of Python that lets you add static types and compiles your code to C, so loops and dot-products run as compiled code instead of through the Python interpreter. sklearn uses this for the SGD inner loop (`sgd_fast.pyx`) and can also tap **BLAS** (or Basic Linear Algebra Subprograms) and even **OpenMP** (API for shared-memory parallel programming) for parallelism.
+
+On top of raw speed, sklearn’s SGD engine gives you learning-rate schedules, L1/L2/ElasticNet, shuffling, early stopping, class weights, and even weight averaging—all of which make training faster and more stable. 
+
+By contrast, our scratch Perceptron iterates in pure Python, paying per-iteration overhead, and our `AdalineGD` does full-batch updates, which are costlier per epoch. That’s why, on the Adult-Income data, the sklearn Perceptron/‘Adaline’ reached similar or better accuracy faster, with fewer numerical issues and less tuning. 
+
+The takeaway: for production-style speed and stability, we prefer sklearn’s compiled SGD stack; and we use the scratch code for learning and transparency.
+
 ### References
 - **Perceptron wraps SGDClassifier** (parameters & equivalence): [scikit-learn docs](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.Perceptron.html). 
 - **SGDClassifier/Regressor options** (losses, penalties, learning-rate schedules, early stopping, sparse input, partial_fit): [scikit-learn docs](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.SGDClassifier.html). 
@@ -45,6 +53,42 @@ An important note is that you need to **shuffle** data each epoch for SGD/mini-b
 
 ## D.) Decision Boundaries: Comparing Logsitic Regression & SVM
 
+Understanding decision boundaries is key in evaluating how different models classify data. This reflection compares **Logistic Regression** and **Support Vector Machines (SVM)**, highlighting their strengths, limitations, and the implications of their decision boundaries on classification tasks.  
+
+### Logistic Regression
+- **Linear decision boundaries only:**  
+  Logistic regression models separate classes using a straight line (in 2D) or a hyperplane (in higher dimensions).  
+- **Limitation with overlapping data:**  
+  In datasets where the classes overlap, logistic regression struggles. This is evident in the visual representation: the red and blue points cannot be cleanly separated by a single line.  
+- **Interpretability:**  
+  Logistic regression is often preferred in scenarios where model transparency is important, as coefficients can be directly interpreted as feature importance.  
+- **When it works best:**  
+  Performs well when data is approximately linearly separable and when simplicity and interpretability outweigh the need for capturing complex patterns.  
+
+### Support Vector Machine (SVM)
+- **Kernel flexibility (RBF in this case):**  
+  Unlike logistic regression, SVM can use kernel functions (e.g., radial basis function) to project the data into higher-dimensional space. This enables it to draw nonlinear boundaries that better capture the true structure of the data.  
+- **Nonlinearity:**  
+  The decision boundary in the SVM example adapts to the data’s shape, allowing it to create curved or irregular separation regions that logistic regression cannot achieve.  
+- **Handling overlap:**  
+  SVM does not force a straight-line separation. Instead, it maximizes the margin between classes while tolerating misclassifications in overlapping regions. This produces broader, more adaptive decision boundaries (e.g., the “broader tail” effect seen in the figure).  
+- **Trade-offs:**  
+  While powerful, SVMs are more computationally expensive and less interpretable compared to logistic regression.  
+
+### Comparative Insights
+- **Flexibility:**  
+  Logistic regression is constrained to linear boundaries, whereas SVM can model nonlinear relationships via kernels.  
+- **Data Fit:**  
+  Logistic regression struggles when classes overlap significantly, but SVM adapts better by expanding the feature space.  
+- **Complexity vs. Interpretability:**  
+  Logistic regression is lightweight and interpretable, but limited. SVM is more flexible and accurate for complex data, but less interpretable.  
+
+### Key Takeaways
+1. Logistic regression demonstrates the limitations of linear models when data is not perfectly separable.  
+2. SVM, especially with RBF kernels, shows how nonlinear approaches can better capture patterns and improve classification performance.  
+3. The choice between Logistic Regression and SVM depends on the problem:  
+   - Choose **Logistic Regression** for simpler, linearly separable data or when interpretability is essential.  
+   - Choose **SVM** when the data is complex, nonlinear, or has overlapping classes and higher accuracy is required.  
 
 ---
 
